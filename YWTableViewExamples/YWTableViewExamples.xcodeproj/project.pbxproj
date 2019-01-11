@@ -18,6 +18,9 @@
 		DA057D9321E71660000159EF /* YWTableViewLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA057D9221E71660000159EF /* YWTableViewLeftCell.m */; };
 		DA057D9621E71680000159EF /* YWTableViewRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA057D9521E71680000159EF /* YWTableViewRightCell.m */; };
 		DA057D9921E717CE000159EF /* YWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA057D9821E717CE000159EF /* YWTableView.m */; };
+		DAAD9ED221E87790000CCADB /* YWExample01.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD9ED121E87790000CCADB /* YWExample01.m */; };
+		DAAD9ED521E87EBE000CCADB /* YWExample02.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD9ED421E87EBE000CCADB /* YWExample02.m */; };
+		DAAD9ED821E88042000CCADB /* YWExample03.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD9ED721E88042000CCADB /* YWExample03.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,12 @@
 		DA057D9521E71680000159EF /* YWTableViewRightCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWTableViewRightCell.m; sourceTree = "<group>"; };
 		DA057D9721E717CE000159EF /* YWTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWTableView.h; sourceTree = "<group>"; };
 		DA057D9821E717CE000159EF /* YWTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWTableView.m; sourceTree = "<group>"; };
+		DAAD9ED021E87790000CCADB /* YWExample01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWExample01.h; sourceTree = "<group>"; };
+		DAAD9ED121E87790000CCADB /* YWExample01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWExample01.m; sourceTree = "<group>"; };
+		DAAD9ED321E87EBE000CCADB /* YWExample02.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWExample02.h; sourceTree = "<group>"; };
+		DAAD9ED421E87EBE000CCADB /* YWExample02.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWExample02.m; sourceTree = "<group>"; };
+		DAAD9ED621E88042000CCADB /* YWExample03.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWExample03.h; sourceTree = "<group>"; };
+		DAAD9ED721E88042000CCADB /* YWExample03.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWExample03.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +87,12 @@
 				DA057D7521E6F030000159EF /* AppDelegate.m */,
 				DA057D7721E6F030000159EF /* ViewController.h */,
 				DA057D7821E6F030000159EF /* ViewController.m */,
+				DAAD9ED021E87790000CCADB /* YWExample01.h */,
+				DAAD9ED121E87790000CCADB /* YWExample01.m */,
+				DAAD9ED321E87EBE000CCADB /* YWExample02.h */,
+				DAAD9ED421E87EBE000CCADB /* YWExample02.m */,
+				DAAD9ED621E88042000CCADB /* YWExample03.h */,
+				DAAD9ED721E88042000CCADB /* YWExample03.m */,
 				DA057D7A21E6F030000159EF /* Main.storyboard */,
 				DA057D7D21E6F033000159EF /* Assets.xcassets */,
 				DA057D7F21E6F033000159EF /* LaunchScreen.storyboard */,
@@ -177,11 +192,14 @@
 			files = (
 				DA057D9621E71680000159EF /* YWTableViewRightCell.m in Sources */,
 				DA057D9321E71660000159EF /* YWTableViewLeftCell.m in Sources */,
+				DAAD9ED521E87EBE000CCADB /* YWExample02.m in Sources */,
 				DA057D7921E6F030000159EF /* ViewController.m in Sources */,
 				DA057D9921E717CE000159EF /* YWTableView.m in Sources */,
+				DAAD9ED821E88042000CCADB /* YWExample03.m in Sources */,
 				DA057D8421E6F033000159EF /* main.m in Sources */,
 				DA057D9021E71501000159EF /* YWTableViewSection.m in Sources */,
 				DA057D7621E6F030000159EF /* AppDelegate.m in Sources */,
+				DAAD9ED221E87790000CCADB /* YWExample01.m in Sources */,
 				DA057D8D21E714CF000159EF /* YWTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,13 +345,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5N7DECL4Z5;
 				INFOPLIST_FILE = YWTableViewExamples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yaowei.YWTableViewExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -344,13 +363,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5N7DECL4Z5;
 				INFOPLIST_FILE = YWTableViewExamples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yaowei.YWTableViewExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

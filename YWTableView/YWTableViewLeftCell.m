@@ -43,6 +43,7 @@
     if (!_contentView) {
         _contentView = [[UIView alloc] init];
         [self addSubview:_contentView];
+        [self layoutIfNeeded];
     }
     return _contentView;
 }

@@ -8,12 +8,14 @@
 
 #import "ViewController.h"
 #import "YWTableView.h"
+#import "YWExample01.h"
+#import "YWExample02.h"
+#import "YWExample03.h"
 
 @interface ViewController ()
 <YWTableViewDelegate,YWTableViewDataSource>
 {
-    NSInteger row;
-    NSInteger left;
+    NSArray *_list;
 }
 @property (nonatomic, strong) YWTableView *tableView;
 
@@ -25,43 +27,49 @@
     
     [super viewDidLoad];
  
-    _tableView = [[YWTableView alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64) style:YWTableViewStyleDefalut];
+    _list = @[@"左边大类，右边明细分类",@"右边大类，左边明细分类",@"两边View将cell包裹"];
+    
+    _tableView = [[YWTableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64) style:YWTableViewStyleDefalut];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.leftWidth = 60;
     [self.view addSubview:_tableView];
     
 }
-- (NSInteger)yw_numberOfSectionsInTableView:(YWTableView *)tableView{
-    return 30;
-}
 - (NSInteger)yw_tableView:(YWTableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return _list.count;
 }
 - (YWTableViewCell *)yw_tableView:(YWTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     YWTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[YWTableViewCell alloc] initWithStyle:YWTableViewCellStyleDefault reuseIdentifier:@"cell"];
-        NSLog(@"row:%zi",row);
-        row += 1;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%zi",indexPath.row];
+    if (indexPath.row < _list.count) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@",_list[indexPath.row]];
+    }
     return cell;
 }
-- (YWTableViewLeftCell *)yw_tableView:(YWTableView *)tableView leftCellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    YWTableViewLeftCell *cell = [tableView dequeueReusableCellWithIdentifierOnLeft:@"left"];
-    if (!cell) {
-        cell = [[YWTableViewLeftCell alloc] initWithReuseIdentifier:@"left"];
-        UILabel *lebl = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 40, 60)];
-        lebl.font = [UIFont systemFontOfSize:12];
-        lebl.tag = 100;
-        lebl.backgroundColor = [UIColor redColor];
-        [cell.contentView addSubview:lebl];
-        NSLog(@"left:%zi",left);
-        left += 1;
+- (void)yw_tableView:(YWTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row < _list.count) {
+        switch (indexPath.row) {
+            case 0:{
+                YWExample01 *vc = [YWExample01 new];
+                [self.navigationController pushViewController:vc animated:YES];
+                }
+                break;
+            case 1:{
+                YWExample02 *vc = [YWExample02 new];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+            case 2:{
+                YWExample03 *vc = [YWExample03 new];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+                
+            default:
+                break;
+        }
     }
-    UILabel *lebl = [cell.contentView viewWithTag:100];
-    lebl.text = @"d归类";
-    return cell;
 }
 @end

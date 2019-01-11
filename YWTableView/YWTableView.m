@@ -48,6 +48,7 @@
 
     } _dataSourceHas;
 }
+@dynamic delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame{
     return [self initWithFrame:frame style:YWTableViewStyleDefalut];
@@ -91,8 +92,6 @@
     _delegateHas.didSelectRightViewAtIndexPath = [newDelegate respondsToSelector:@selector(yw_tableView:didSelectRightViewAtIndexPath:)];
     _delegateHas.widthForLeftInSection = [newDelegate respondsToSelector:@selector(yw_tableView:widthForLeftInSection:)];
     _delegateHas.widthForRightInSection = [newDelegate respondsToSelector:@selector(yw_tableView:widthForRightInSection:)];
-
-    
 }
 - (void)setDataSource:(id<YWTableViewDataSource>)newDataSource{
     
@@ -251,17 +250,27 @@
             }
             //---end
             
+            CGFloat cellWidth = boundsSize.width - leftPadding;
             
             //----rightView start
             CGFloat rightPadding = 0;
+            YWTableViewRightCell *rightView = nil;
             if (_dataSourceHas.rightCellOfSectionsInTableView) {
                 NSIndexPath *rightIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-                YWTableViewRightCell *rightView = [rightAvailableCells objectForKey:rightIndexPath];
-                rightView = rightView ? rightView : [self.dataSource yw_tableView:self rightCellForRowAtIndexPath:rightIndexPath];
+                 [rightAvailableCells objectForKey:rightIndexPath];
+                 rightView = rightView ? rightView : [self.dataSource yw_tableView:self rightCellForRowAtIndexPath:rightIndexPath];
                 if (rightView) {
                     rightPadding = sectionRecord.rightWidth;
+                    cellWidth = cellWidth - rightPadding;
+                    
                     CGRect rightRect = CGRectMake(0, CGRectGetMaxY(headerRect),
                                                   rightPadding, sectionRecord.rowsHeight);
+                    
+                    if (leftPadding == 0) {
+                        rightRect.origin.x = cellWidth;
+                    }else{
+                        rightRect.origin.x = cellWidth + leftPadding;
+                    }
                     [_rightCachedCells setObject:rightView forKey:rightIndexPath];
                     [rightAvailableCells removeObjectForKey:rightIndexPath];
                     rightView.frame = rightRect;
@@ -270,7 +279,6 @@
             }
 
             //---end
-            
             
             for (NSInteger row = 0; row < numberOfRows; row ++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
@@ -282,7 +290,8 @@
                         [_cachedCells setObject:cell forKey:indexPath];
                         [availableCells removeObjectForKey:indexPath];
                         rowRect.origin.x = leftPadding;
-                        rowRect.size.width = boundsSize.width - leftPadding - rightPadding;
+                        rowRect.size.width = cellWidth;
+//                        rowRect.size.width = boundsSize.width - leftPadding - rightPadding;
                         cell.frame = rowRect;
                         [cell setLineView:self.separatorStyle theColor:self.separatorColor];
                         [self addSubview:cell];
@@ -295,6 +304,7 @@
                 //                    }
                 //                }
             }
+            
         }
     }
     
