@@ -11,8 +11,8 @@
    * 注意点：YWTableView只是提供个参考思路，根据需求可参考代码自行可实现个tableView
      
  ### 效果
-   >>![image](https://github.com/flyOfYW/YWTableView/blob/master/image/IMG_0379.PNG)
-   >>![image](https://github.com/flyOfYW/YWTableView/blob/master/image/tab.gif)
+   ![image](https://github.com/flyOfYW/YWTableView/blob/master/image/IMG_0379.PNG)
+   ![image](https://github.com/flyOfYW/YWTableView/blob/master/image/tab.gif)
 
 ### 用法
    > ##### * 跟UITableView用法一样，方法也类似,
