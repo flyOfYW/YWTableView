@@ -11,6 +11,9 @@
 
 @interface YWExample03 ()
 <YWTableViewDelegate,YWTableViewDataSource>
+{
+    NSInteger cellIndex,left,right;
+}
 @property (nonatomic, strong) YWTableView *tableView;
 @property (nonatomic, strong) NSMutableArray *data;
 
@@ -55,6 +58,8 @@
     if (!cell) {
         cell = [[YWTableViewCell alloc] initWithStyle:YWTableViewCellStyleDefault reuseIdentifier:@"cell"];
         cell.contentView.backgroundColor = [UIColor whiteColor];
+        NSLog(@"cell:%zi",cellIndex);
+        cellIndex++;
     }
     if (indexPath.section < _data.count) {
         NSDictionary *dict = _data[indexPath.section];
@@ -77,7 +82,8 @@
         label.font = [UIFont systemFontOfSize:15];
         cell.contentView.backgroundColor = [UIColor whiteColor];
         [cell.contentView addSubview:label];
-        
+        NSLog(@"left:%zi",left);
+        left++;
     }
     if (indexPath.section < _data.count) {
         UILabel *label = [cell.contentView viewWithTag:102];
@@ -98,7 +104,8 @@
         label.font = [UIFont systemFontOfSize:15];
         cell.contentView.backgroundColor = [UIColor whiteColor];
         [cell.contentView addSubview:label];
-        
+        NSLog(@"right:%zi",right);
+        right++;
     }
     if (indexPath.section < _data.count) {
         UILabel *label = [cell.contentView viewWithTag:103];

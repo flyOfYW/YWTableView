@@ -257,7 +257,7 @@
             YWTableViewRightCell *rightView = nil;
             if (_dataSourceHas.rightCellOfSectionsInTableView) {
                 NSIndexPath *rightIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-                 [rightAvailableCells objectForKey:rightIndexPath];
+                 rightView = [rightAvailableCells objectForKey:rightIndexPath];
                  rightView = rightView ? rightView : [self.dataSource yw_tableView:self rightCellForRowAtIndexPath:rightIndexPath];
                 if (rightView) {
                     rightPadding = sectionRecord.rightWidth;
@@ -351,8 +351,6 @@
             [cell removeFromSuperview];
         }
     }
-    
-    
     
     if (_tableFooterView) {
         CGRect tableFooterFrame = _tableFooterView.frame;

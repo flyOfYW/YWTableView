@@ -58,12 +58,12 @@
     
     if (_style == YWTableViewCellStyleDefault) {
         CGRect textRect;
-        textRect.origin = CGPointMake(5,0);
+        textRect.origin = CGPointMake(10,0);
         textRect.size = CGSizeMake(MAX(0,contentFrame.size.width - 10),contentFrame.size.height);
         self.textLabel.frame = textRect;
         
     }else if (_style == YWTableViewCellStyleValue1){
-        const CGFloat padding = 5;
+        const CGFloat padding = 10;
         const BOOL showImage = (_imageView.image != nil);
         const CGFloat imageWidth = (showImage? 30:0);
         self.imageView.frame = CGRectMake(padding,padding,imageWidth,contentFrame.size.height-padding);
@@ -73,7 +73,7 @@
         textRect.size = CGSizeMake(MAX(0,contentFrame.size.width-textRect.origin.x-padding),contentFrame.size.height);
         self.textLabel.frame = textRect;
     }else if (_style == YWTableViewCellStyleValue2){
-        const CGFloat padding = 5;
+        const CGFloat padding = 10;
 
         const BOOL showImage = (_imageView.image != nil);
         const CGFloat imageWidth = (showImage? 30:0);
@@ -89,6 +89,7 @@
     if (!_contentView) {
         _contentView = [[UIView alloc] init];
         [self addSubview:_contentView];
+        [self layoutIfNeeded];
     }
     return _contentView;
 }
@@ -116,7 +117,6 @@
         _textLabel.backgroundColor = [UIColor clearColor];
         _textLabel.textColor = [UIColor blackColor];
         _textLabel.highlightedTextColor = [UIColor whiteColor];
-        _textLabel.font = [UIFont boldSystemFontOfSize:17];
         [self.contentView addSubview:_textLabel];
     }
     return _textLabel;
