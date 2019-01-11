@@ -12,8 +12,6 @@
      
  ### 效果
    ![image](https://github.com/flyOfYW/YWTableView/blob/master/image/IMG_0379.PNG)
-   ![image](https://github.com/flyOfYW/YWTableView/blob/master/image/tab.gif)
-
 ### 用法
    > ##### * 跟UITableView用法一样，方法也类似,
    > ##### * 跟UITableView用法一样，方法也类
