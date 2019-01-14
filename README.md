@@ -14,9 +14,8 @@
    ![image](https://github.com/flyOfYW/YWTableView/blob/master/image/IMG_0379.PNG)
 ### 用法
    > ##### * 跟UITableView用法一样，方法也类似,
-   > ##### * 跟UITableView用法一样，方法也类
      
-  
+```  
 @protocol YWTableViewDelegate <UIScrollViewDelegate>
 @optional
 - (void)yw_tableView:(YWTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -73,6 +72,7 @@ typedef NS_ENUM(NSInteger, YWTableViewStyle) {
 - (YWTableViewLeftCell *)dequeueReusableCellWithIdentifierOnLeft:(NSString *)identifier;
 - (YWTableViewRightCell *)dequeueReusableCellWithIdentifierOnRight:(NSString *)identifier;
 - (void)reloadData;
+```
 
 
 
